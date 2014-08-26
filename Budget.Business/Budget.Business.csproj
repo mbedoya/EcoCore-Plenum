@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E0750DE-890B-4181-8B5F-F41737BF3601}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Budget.Business</RootNamespace>
+    <AssemblyName>Budget.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Plenum.Models">
+      <HintPath>..\Lib\Plenum.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Plenum.Utilities">
+      <HintPath>..\Lib\Plenum.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BankaccounttypeBO.cs" />
+    <Compile Include="BankBO.cs" />
+    <Compile Include="BaseBankaccounttypeBO.cs" />
+    <Compile Include="BaseBankBO.cs" />
+    <Compile Include="BaseClientBO.cs" />
+    <Compile Include="BaseProjectBO.cs" />
+    <Compile Include="BaseProjectresourceBO.cs" />
+    <Compile Include="BaseProviderBO.cs" />
+    <Compile Include="BaseResourceBO.cs" />
+    <Compile Include="ClientBO.cs" />
+    <Compile Include="ProjectBO.cs" />
+    <Compile Include="ProjectresourceBO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProviderBO.cs" />
+    <Compile Include="ResourceBO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Budget.Data\Budget.Data.csproj">
+      <Project>{8cd4d5b9-f5a1-4569-997d-d4b1e87a1840}</Project>
+      <Name>Budget.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Budget.Models\Budget.Models.csproj">
+      <Project>{6e7f4c99-21b3-4b25-9205-3e751007c7a8}</Project>
+      <Name>Budget.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

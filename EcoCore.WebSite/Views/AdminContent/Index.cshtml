@@ -1,0 +1,87 @@
+﻿@model Plenum.WebSite.Models.AdminContentUIModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Page title -->
+<div id="pageTitle" class="content2-pagetitle">Content</div>
+
+<iframe id="pageIframe" style="width:95%;border:solid 0px; height:700px;" src=""></iframe>
+
+@section left_body{
+
+    <p class="sidebar-maintitle">Pages</p>
+
+    <!-- Textbox -->
+    <div class="sidebar-txtbox-noshade">
+        <div id="siteContent">
+        </div>
+    </div>    
+}
+
+@section scripts{
+
+    <script>
+
+        var selectd_node_id = null;
+
+        $(document).ready(function () {
+
+            $('#siteContent').jstree({
+                'core': {
+                    'data': {
+                        'url': function (node) {
+                            return '/ManagePage/GetChildren/';
+                        },
+                        'data': function (node) {
+                            return {'id': node.id}
+                        }
+                    }
+                }
+            });            
+
+            $('#siteContent').on("ready.jstree", function (e, data) {
+                
+                var menu1 = [
+                    {
+                        'Create Page': function (menuItem, menu) {
+
+                            if (selectd_node_id == null) {
+                                alert("Please select Parent Page");
+                            } else {
+
+                                if (selectd_node_id == "-1") {
+                                    alert("Trash is not a valid Parent Page");
+                                } else {
+                                    $("#pageTitle").html("New Page");
+                                    $("#pageIframe").attr("src", "/admin/managepage/edit/?ID=" + selectd_node_id);
+                                }
+                            }
+                        }
+                    },
+                    $.contextMenu.separator,
+                    {
+                        'Edit Page': function (menuItem, menu) {
+                            alert("You clicked Option 2!");
+                        }
+                    }
+                ];
+
+                $(function () {
+                    $('.cmenu1').contextMenu(menu1, { theme: 'vista' });
+                });
+
+            });
+
+            $('#siteContent').on("select_node.jstree", function (e, data) {
+                selectd_node_id = data.node.id;
+                console.log(data.node);                
+            });
+
+        });
+
+    </script>
+
+}

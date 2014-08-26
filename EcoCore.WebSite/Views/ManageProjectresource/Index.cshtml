@@ -1,0 +1,113 @@
+@model List<Budget.Models.ProjectresourceDataModel>
+
+@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css/style_screen.css")
+    @Styles.Render("~/Content/css/style_print.css")
+    @Styles.Render("~/Content/css/styles.css")
+</head>
+<body>
+    <div>
+
+        <form id="indexForm">
+			
+			Name<br />
+            <input id="Name" name="Name" type="text" />
+            <br />
+            <input type="submit" value="Search" />
+        </form>
+
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                				<th> Area/Resource </th>	
+								<th> ProviderID </th>	
+								<th> Quantity </th>	
+								<th> Duration </th>	
+								<th> UnitCost </th>
+                                <th> Total Cost </th>	
+								<th> SalePrice </th>	
+				                <th>&nbsp;
+                </th>
+            </tr>
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                <tr>
+                    					<td> @item.Name </td>	
+										<td> @item.ProviderID </td>	
+										<td > @item.Quantity </td>	
+										<td> @item.Duration </td>	
+										<td> @item.UnitCost.ToString("C2") </td>	
+                                        <td> @( (item.Quantity*item.Duration*item.UnitCost).ToString("C2") ) </td>
+										<td> @item.SalePrice </td>	
+					                    <td>
+                        <a href="/admin/manageprojectresource/edit/@item.ID">edit</a>&nbsp;
+						<a class="deleteItem" item="@item.ID" href="#">delete</a>
+                    </td>
+                </tr>                    
+                }
+
+            }
+
+        </table>
+
+		<input id="btnAdd" type="button" value="Add Projectresource" />
+
+        @Scripts.Render("~/Scripts/jquery.js")        
+
+        <script>
+
+            $(document).ready(function () {
+
+                $("#btnAdd").on("click", function(){
+                    window.location.href = '/Admin/Manageprojectresource/Edit/';
+                });
+
+				 $(".deleteItem").on("click", function () {
+
+                if (confirm("Are you sure you want to delete this Projectresource?")) {
+
+                    var itemID = $(this).attr("item");
+
+                    //Check email and password
+                    $.ajax({
+                        url: "/Admin/ManageProjectresource/Delete",
+                        dataType: "json",
+                        type: "POST",
+                        data: { id: itemID },
+                        success: function (data) {
+
+                        },
+                        error: function (a, b, c) {
+                            alert("Error Deleting Projectresource");
+                        }
+                    })
+                        .then(function (response) {
+
+                            if (response.success) {
+                                alert("Item Deleted");
+								window.location.href = '/Admin/ManageProjectresource/';
+                            }
+
+                        });
+                }
+
+            });
+
+            });
+        </script>		
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+@model Budget.Models.ProviderDataModel
+
+@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css/style_screen.css")
+    @Styles.Render("~/Content/css/style_print.css")
+    @Styles.Render("~/Content/css/styles.css")
+    @Styles.Render("~/Scripts/datepick/jquery.datepick.css")
+    @Styles.Render("~/Content/css/jquery.fancybox.css")
+</head>
+<body>
+    <div>
+
+        <form id="editForm" method="post" enctype="multipart/form-data">
+
+            <input id="ID" name="ID" type="hidden" value="@Model.ID.ToString()" />
+            Name<br />
+            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 80, options = "" }); }
+            <br />
+
+            <div class="field_details">
+                80 characters
+            </div>
+            <br />
+            BankID<br />
+
+            @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "BankID", fieldValue = @Model != null ? @Model.BankID : 0, primaryTable = "Bank", readOnly = false, data=Budget.Business.BankBO.GetInstance().GetAll() }); }
+            <br />
+
+            BankAccountNumber<br />
+            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "BankAccountNumber", value = Model.BankAccountNumber, type = "text", size = 45, options = "" }); }
+            <br />
+
+            <div class="field_details">
+                45 characters
+            </div>
+            <br />
+            BankAccountTypeID<br />
+
+            @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "BankAccountTypeID", fieldValue = @Model != null ? @Model.BankAccountTypeID : 0, primaryTable = "Bankaccounttype", readOnly = false, data = Budget.Business.BankaccounttypeBO.GetInstance().GetAll() }); }
+            <br />
+
+            BankAccountOwner<br />
+            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "BankAccountOwner", value = Model.BankAccountOwner, type = "text", size = 70, options = "" }); }
+            <br />
+
+            <div class="field_details">
+                70 characters
+            </div>
+            <br />
+            CC/NIT<br />
+            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "IdNumber", value = Model.IdNumber, type = "text", size = 30, options = "" }); }
+            <br />
+
+            <div class="field_details">
+                30 characters
+            </div>
+            <br />
+            Notes<br />
+            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Notes", value = Model.Notes, type = "text", size = 500, options = "" }); }
+            <br />
+
+            <div class="field_details">
+                500 characters
+            </div>
+            <br />
+
+            <br />
+            <input type="submit" value="Save" />
+        </form>
+
+        @Scripts.Render("~/Scripts/jquery.js")
+        @Scripts.Render("~/Scripts/jquery.validate.min.js")
+        @Scripts.Render("~/Scripts/datepick/jquery.plugin.min.js")
+        @Scripts.Render("~/Scripts/datepick/jquery.datepick.min.js")
+        @Scripts.Render("~/Scripts/jquery.fancybox.js")
+
+        <script>
+
+            $(document).ready(function () {
+
+                $('.fancybox').fancybox();
+
+                //DatePick
+                $(function () {
+
+
+                });
+
+
+                $("#editForm").validate({
+                    rules: {
+                        Name: { required: true },
+                        BankID: { required: true },
+                        BankAccountNumber: { required: true },
+                        BankAccountTypeID: { required: true },
+
+                    },
+                    messages: {
+                        Name: "Name is required",
+                        BankID: "BankID is required",
+                        BankAccountNumber: "BankAccountNumber is required",
+                        BankAccountTypeID: "BankAccountTypeID is required",
+                    }
+                });
+
+            });
+
+
+        </script>
+
+    </div>
+</body>
+</html>

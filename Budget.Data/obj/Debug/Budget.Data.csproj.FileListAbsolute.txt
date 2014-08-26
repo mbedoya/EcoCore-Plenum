@@ -1,0 +1,10 @@
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\bin\Debug\Budget.Data.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\bin\Debug\Budget.Data.pdb
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\obj\Debug\Budget.Data.csprojResolveAssemblyReference.cache
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\obj\Debug\Budget.Data.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\obj\Debug\Budget.Data.pdb
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\bin\Debug\MySql.Data.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\bin\Debug\Budget.Models.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\bin\Debug\Plenum.Data.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\bin\Debug\Plenum.Models.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Data\bin\Debug\Budget.Models.pdb

@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BCF3AFA0-F51E-409E-A965-1D5DD45330BC}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EcoCore.WebSite</RootNamespace>
+    <AssemblyName>EcoCore.WebSite</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plenum.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Plenum.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Plenum.WebSite">
+      <HintPath>..\Lib\Plenum.WebSite.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\Admin\ManageBankaccounttypeController.cs" />
+    <Compile Include="Controllers\Admin\ManageBankController.cs" />
+    <Compile Include="Controllers\Admin\ManageClientController.cs" />
+    <Compile Include="Controllers\Admin\ManageProjectController.cs" />
+    <Compile Include="Controllers\Admin\ManageProjectresourceController.cs" />
+    <Compile Include="Controllers\Admin\ManageProviderController.cs" />
+    <Compile Include="Controllers\Admin\ManageResourceController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\EcoResources.es-CO.Designer.cs">
+      <DependentUpon>EcoResources.es-CO.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\EcoResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EcoResources.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\css\blank.gif" />
+    <Content Include="Content\css\contextmenu\cmenu-gloss-cyan-menu-item-hover.gif" />
+    <Content Include="Content\css\contextmenu\cmenu-gloss-menu-item-hover.gif" />
+    <Content Include="Content\css\contextmenu\cmenu-gloss-semitransparent-menu-item-hover.png" />
+    <Content Include="Content\css\contextmenu\cmenu-human-menu-item-hover.gif" />
+    <Content Include="Content\css\contextmenu\cmenu-osx-menu-item-hover.gif" />
+    <Content Include="Content\css\contextmenu\cmenu-vista-bg.gif" />
+    <Content Include="Content\css\contextmenu\cmenu-vista-menu-item-hover.gif" />
+    <Content Include="Content\css\contextmenu\cmenu-xp-bg.gif" />
+    <Content Include="Content\css\contextmenu\jquery.contextmenu.css" />
+    <Content Include="Content\css\fancybox_loading%402x.gif" />
+    <Content Include="Content\css\fancybox_loading.gif" />
+    <Content Include="Content\css\fancybox_overlay.png" />
+    <Content Include="Content\css\fancybox_sprite.png" />
+    <Content Include="Content\css\jcarousel\jcarousel.basic.css" />
+    <Content Include="Content\css\jquery.fancybox.css" />
+    <Content Include="Content\css\jquery.mobile-1.4.2.min.css" />
+    <Content Include="Content\css\mascotia.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\style_print.css" />
+    <Content Include="Content\css\style_screen.css" />
+    <Content Include="Content\img\Alpo-Brand-Dog-Food.gif" />
+    <Content Include="Content\img\arrow-down-green.png" />
+    <Content Include="Content\img\arrow.gif" />
+    <Content Include="Content\img\attachment.png" />
+    <Content Include="Content\img\bg.jpg" />
+    <Content Include="Content\img\content_bg.jpg" />
+    <Content Include="Content\img\drop_shadow.gif" />
+    <Content Include="Content\img\familia\img1.jpg" />
+    <Content Include="Content\img\familia\img2.jpg" />
+    <Content Include="Content\img\familia\img3.png" />
+    <Content Include="Content\img\familia\img4.jpg" />
+    <Content Include="Content\img\family.png" />
+    <Content Include="Content\img\header.jpg" />
+    <Content Include="Content\img\icon_document.gif" />
+    <Content Include="Content\img\Logo.jpg" />
+    <Content Include="Content\img\menu_bg.gif" />
+    <Content Include="Content\img\menu_hover_bg.gif" />
+    <Content Include="Content\img\pets.png" />
+    <Content Include="Content\img\recycle_bin.png" />
+    <Content Include="Content\img\strawberries.jpg" />
+    <Content Include="Content\img\world.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\datepick\jquery.datepick.css" />
+    <Content Include="Scripts\datepick\jquery.datepick.min.js" />
+    <Content Include="Scripts\datepick\jquery.plugin.min.js" />
+    <Content Include="Scripts\datepick\ui.datepick.css" />
+    <Content Include="Scripts\jcarousel\jcarousel.basic.js" />
+    <Content Include="Scripts\jcarousel\jquery.jcarousel.min.js" />
+    <Content Include="Scripts\jquery.contextmenu.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.2.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jstree\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Scripts\jstree\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Scripts\jstree\bootstrap\css\bootstrap.css" />
+    <Content Include="Scripts\jstree\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Scripts\jstree\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\jstree\bootstrap\js\bootstrap.js" />
+    <Content Include="Scripts\jstree\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\jstree\jstree.js" />
+    <Content Include="Scripts\jstree\jstree.min.js" />
+    <Content Include="Scripts\jstree\themes\default\32px.png" />
+    <Content Include="Scripts\jstree\themes\default\40px.png" />
+    <Content Include="Scripts\jstree\themes\default\style.css" />
+    <Content Include="Scripts\jstree\themes\default\style.min.css" />
+    <Content Include="Scripts\jstree\themes\default\throbber.gif" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdminAdministration\Index.cshtml" />
+    <Content Include="Views\AdminContent\Index.cshtml" />
+    <Content Include="Views\AdminWorkflows\Index.cshtml" />
+    <Content Include="Views\Admin\FieldDisplay.cshtml" />
+    <Content Include="Views\Admin\FileDisplay.cshtml" />
+    <Content Include="Views\Admin\ForeignKeyDisplay.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jstree\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jstree\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\jstree\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Languages\EcoResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EcoResources.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Languages\EcoResources.es-CO.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EcoResources.es-CO.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ManageClient\Edit.cshtml" />
+    <Content Include="Views\ManageClient\Index.cshtml" />
+    <Content Include="Views\ManagePagefield\Edit.cshtml" />
+    <Content Include="Views\ManagePagefield\Index.cshtml" />
+    <Content Include="Views\ManagePagetypefield\Edit.cshtml" />
+    <Content Include="Views\ManagePagetypefield\Index.cshtml" />
+    <Content Include="Views\ManagePagetype\Edit.cshtml" />
+    <Content Include="Views\ManagePagetype\Index.cshtml" />
+    <Content Include="Views\ManagePage\Edit.cshtml" />
+    <Content Include="Views\ManagePage\EditFields.cshtml" />
+    <Content Include="Views\ManagePage\GetChildren.cshtml" />
+    <Content Include="Views\ManagePage\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Budget.Business\Budget.Business.csproj">
+      <Project>{8e0750de-890b-4181-8b5f-f41737bf3601}</Project>
+      <Name>Budget.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Budget.Models\Budget.Models.csproj">
+      <Project>{6e7f4c99-21b3-4b25-9205-3e751007c7a8}</Project>
+      <Name>Budget.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ManageProject\Edit.cshtml" />
+    <Content Include="Views\ManageProject\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ManageResource\Edit.cshtml" />
+    <Content Include="Views\ManageResource\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ManageBankaccounttype\Edit.cshtml" />
+    <Content Include="Views\ManageBankaccounttype\Index.cshtml" />
+    <Content Include="Views\ManageBank\Edit.cshtml" />
+    <Content Include="Views\ManageBank\Index.cshtml" />
+    <Content Include="Views\ManageProvider\Edit.cshtml" />
+    <Content Include="Views\ManageProvider\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ManageProjectresource\Edit.cshtml" />
+    <Content Include="Views\ManageProjectresource\Index.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62552</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60996/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

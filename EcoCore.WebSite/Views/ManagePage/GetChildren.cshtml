@@ -1,0 +1,48 @@
+﻿@model Plenum.WebSite.Models.ContentTreeModelUI
+
+@if (Model.ParentPages)
+{
+    <ul>
+        <li id="0" data-jstree='{"opened":true}' class="cmenu1" >Root
+            <ul>
+                <li class="cmenu1" id="-1" >Trash</li>
+            </ul>
+            @if (Model.Pages != null && Model.Pages.Count > 0)
+                {
+                    foreach (var item in Model.Pages)
+                    {
+                        <ul>
+                            <li class="jstree-closed" id="@item.ID" data-jstree='@(item.ID.ToString() == Plenum.Utilities.Web.Config.GetHomeID() ? "{\"icon\":\"/content/img/world.png\"}" : "{\"icon\":\"/content/img/icon_document.gif\"}" )'>@item.Name
+                            </li>
+                        </ul>
+                    }
+                } 
+        </li>
+    </ul>
+}else{
+     if (Model.Pages != null && Model.Pages.Count > 0)
+    {
+        foreach (var item in Model.Pages)
+        {
+            <ul>
+                <li class="jstree-closed" id="@item.ID" data-jstree='@(item.ID.ToString() == Plenum.Utilities.Web.Config.GetHomeID() ? "{\"icon\":\"/content/img/world.png\"}" : "{\"icon\":\"/content/img/icon_document.gif\"}" )'>@item.Name</li>
+            </ul>
+        }
+    }
+}
+
+@*
+
+@{
+                                    List<Plenum.Models.PageDataModel> childrenPages = Plenum.Business.PageBO.GetInstance().GetPageByPage(Convert.ToInt32(item.ID));
+                                }
+                                @if (childrenPages != null && childrenPages.Count > 0)
+                                {
+                                    <ul>
+                                    @foreach (var childrenItem in childrenPages)
+                                    {
+                                        <li class="cmenu1" id="@childrenItem.ID" data-jstree='{"icon":"/content/img/icon_document.gif"}'>@childrenItem.Name</li>       
+                                    }
+                                    </ul> 
+                                }
+*@

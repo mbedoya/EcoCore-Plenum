@@ -1,0 +1,58 @@
+﻿@model Plenum.WebSite.Models.FieldUIModel
+
+@{
+    string value = "";
+    if(Model.Type == "date"){
+        value = Convert.ToDateTime(Model.Value).ToString("dd/MM/yyyy");
+    }else{
+        value = Model.Value == null ? "" : Model.Value.ToString();    
+    }
+
+    int size = 20;
+    if (Model.Size > 0)
+    {
+        size = Model.Size;
+    }
+
+    string read_only = "";
+    if (Model.Options.ToLower().Contains("readonly"))
+    {
+        read_only = "readonly";
+    }
+
+    bool isPassword = Model.Options.ToLower().Contains("password");
+
+    bool isFile = Model.Options.ToLower().Contains("file");
+    string name = Model.Name;
+    if(isFile){
+        name = "File" + name;
+    } 
+    
+}
+
+@if (isFile)
+{
+    <div>
+        <input id="@name" name="@name" type="file" />
+        <input id="@Model.Name" name="@Model.Name" type="hidden" value="@value" />
+        @{ Html.RenderAction("FileDisplay", "Admin", new { url = value }); }
+    </div>
+}
+else
+{
+    if (isPassword)
+    {
+        <input id="@Model.Name" name="@Model.Name" type="password" value="@value" maxlength="@size" @read_only />    
+    }
+    else
+    {
+        if (Model.Type == "date")
+        {
+            <input id="@Model.Name" name="@Model.Name" type="text" value="@value" maxlength="10" @read_only />
+        }
+        else
+        {
+            <input id="@Model.Name" name="@Model.Name" type="text" value="@value" maxlength="@size" @read_only />
+        }
+    }
+}

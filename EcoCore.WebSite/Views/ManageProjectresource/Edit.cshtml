@@ -1,0 +1,116 @@
+@model Budget.Models.ProjectresourceDataModel
+
+@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css/style_screen.css")
+    @Styles.Render("~/Content/css/style_print.css")
+    @Styles.Render("~/Content/css/styles.css")
+	@Styles.Render("~/Scripts/datepick/jquery.datepick.css")
+	@Styles.Render("~/Content/css/jquery.fancybox.css")
+</head>
+<body>
+    <div>
+
+        <form id="editForm" method="post" enctype="multipart/form-data">
+
+						<input id="ID" name="ID" type="hidden" value="@Model.ID.ToString()" />
+     			Name<br />
+            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 100, options = "" }); }<br />
+						
+						<div class="field_details">
+                100 characters
+            </div>
+			<br />
+							ProjectID<br />
+            				 				
+					@{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "ProjectID", fieldValue = @Model != null ? @Model.ProjectID : 0, primaryTable = "Project", readOnly = false, data = Budget.Business.ProjectBO.GetInstance().GetAll() }); }<br />
+							
+							ResourceID<br />
+            				 				
+					@{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "ResourceID", fieldValue = @Model != null ? @Model.ResourceID : 0, primaryTable = "Resource", readOnly = false, data = Budget.Business.ResourceBO.GetInstance().GetAll() }); }<br />
+							
+							ProviderID<br />
+            				 				
+					@{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "ProviderID", fieldValue = @Model != null ? @Model.ProviderID : 0, primaryTable = "Provider", readOnly = false, data = Budget.Business.ProviderBO.GetInstance().GetAll() }); }<br />
+							
+							Detail<br />
+            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Detail", value = Model.Detail, type = "text", size = 1000, options = "" }); }<br />
+						
+						<div class="field_details">
+                1000 characters
+            </div>
+			<br />
+							Quantity<br />
+            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Quantity", value = Model.Quantity, type = "text", size = 0, options = "" }); }<br />
+						
+							Duration<br />
+            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Duration", value = Model.Duration, type = "text", size = 0, options = "" }); }<br />
+						
+							UnitCost<br />
+            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "UnitCost", value = Model.UnitCost, type = "text", size = 0, options = "" }); }<br />
+						
+							SalePrice<br />
+            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "SalePrice", value = Model.SalePrice, type = "text", size = 0, options = "" }); }<br />
+						
+				
+            <br />
+            <input type="submit" value="Save" />
+        </form>
+
+		@Scripts.Render("~/Scripts/jquery.js")
+        @Scripts.Render("~/Scripts/jquery.validate.min.js")
+        @Scripts.Render("~/Scripts/datepick/jquery.plugin.min.js")
+        @Scripts.Render("~/Scripts/datepick/jquery.datepick.min.js")
+		@Scripts.Render("~/Scripts/jquery.fancybox.js")
+
+        <script>
+
+            $(document).ready(function () {
+
+				$('.fancybox').fancybox();
+
+				 //DatePick
+                $(function () {
+
+					                    
+                });
+
+
+                $("#editForm").validate({
+                    rules: {
+													  ProjectID: { required: true },
+							 							  ResourceID: { required: true },
+							 							  ProviderID: { required: true },
+							 							  Quantity: { required: true },
+							 							  Duration: { required: true },
+							 							  UnitCost: { required: true },
+							                         
+                    },
+                    messages: {
+                        							  ProjectID: "ProjectID is required",
+							 							  ResourceID: "ResourceID is required",
+							 							  ProviderID: "ProviderID is required",
+							 							  Quantity: "Quantity is required",
+							 							  Duration: "Duration is required",
+							 							  UnitCost: "UnitCost is required",
+							                     }
+                });
+
+            });
+
+
+        </script>
+        
+    </div>
+</body>
+</html>

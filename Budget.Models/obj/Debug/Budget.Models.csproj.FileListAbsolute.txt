@@ -1,0 +1,5 @@
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Models\bin\Debug\Budget.Models.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Models\bin\Debug\Budget.Models.pdb
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Models\obj\Debug\Budget.Models.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Models\obj\Debug\Budget.Models.pdb
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\Budget.Models\bin\Debug\Plenum.Models.dll
