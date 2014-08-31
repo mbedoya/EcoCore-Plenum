@@ -1,0 +1,78 @@
+﻿
+.img-header {
+    height: 100px;
+}
+
+ul li, ul li a {
+    color: #000 !important;
+}
+
+.nav2 ul li a {
+    color: #fff !important;
+    text-transform: none !important;
+}
+
+.nav3 ul li.title {
+    color: #fff !important;
+}
+
+.ficha {
+    padding: 20px;
+    margin-right: 10px;
+    border: solid 1px #A6D13B;
+}
+
+table {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+table tr th {
+    color: rgb(0,0,0);
+    font-weight: bold;
+    font-size: 15px;
+    width: 150px;
+    border-bottom: solid 2px #A6D13B;
+    padding-bottom: 5px;    
+    padding: 5px;
+    color:#A6D13B;
+}
+
+table tr td {color: rgb(0,0,0); font-size: 15px;width: 150px; border-bottom: solid 1px #CCC; padding: 5px;}
+table tr td a {color:#A6D13B; text-decoration:underline; font-size: 15px}
+table tr td.row a {color:#000; text-decoration:underline; font-size: 15px}
+
+input[type=text] {
+    border: solid 1px #A6D13B;
+    padding: 5px;
+    width: 180px;
+    border-radius: 4px;
+}
+
+input[type=submit], input[type=button], .button {
+    color: #fff;
+    border: solid 1px #A6D13B;
+    width: 100px;
+    height: 30px;
+    margin-top: 15px;
+    background-color: #A6D13B;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+select {
+    border: solid 1px #A6D13B;
+    padding: 5px;
+    width: 160px;
+    border-radius: 4px;
+    background: url("../img/arrow-down-green.png") no-repeat right #fff;
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+}
+
+.button a {
+    text-decoration: none;
+    color: #fff;    
+    margin: 15px;
+}

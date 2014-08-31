@@ -133,6 +133,7 @@
     <Compile Include="Controllers\Admin\ManageProjectresourceController.cs" />
     <Compile Include="Controllers\Admin\ManageProviderController.cs" />
     <Compile Include="Controllers\Admin\ManageResourceController.cs" />
+    <Compile Include="Controllers\Admin\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -165,6 +166,7 @@
     <Content Include="Content\css\contextmenu\cmenu-vista-menu-item-hover.gif" />
     <Content Include="Content\css\contextmenu\cmenu-xp-bg.gif" />
     <Content Include="Content\css\contextmenu\jquery.contextmenu.css" />
+    <Content Include="Content\css\eco_styles.css" />
     <Content Include="Content\css\fancybox_loading%402x.gif" />
     <Content Include="Content\css\fancybox_loading.gif" />
     <Content Include="Content\css\fancybox_overlay.png" />
@@ -172,6 +174,7 @@
     <Content Include="Content\css\jcarousel\jcarousel.basic.css" />
     <Content Include="Content\css\jquery.fancybox.css" />
     <Content Include="Content\css\jquery.mobile-1.4.2.min.css" />
+    <Content Include="Content\css\jspkg-tabs\tabs.css" />
     <Content Include="Content\css\mascotia.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\style_print.css" />
@@ -193,6 +196,7 @@
     <Content Include="Content\img\Logo.jpg" />
     <Content Include="Content\img\menu_bg.gif" />
     <Content Include="Content\img\menu_hover_bg.gif" />
+    <Content Include="Content\img\person.png" />
     <Content Include="Content\img\pets.png" />
     <Content Include="Content\img\recycle_bin.png" />
     <Content Include="Content\img\strawberries.jpg" />
@@ -209,6 +213,8 @@
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.mobile-1.4.2.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jspkg-tabs\jquery.easytabs.min.js" />
+    <Content Include="Scripts\jspkg-tabs\jquery.hashchange.min.js" />
     <Content Include="Scripts\jstree\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Scripts\jstree\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Scripts\jstree\bootstrap\css\bootstrap.css" />
@@ -314,6 +320,12 @@
   <ItemGroup>
     <Content Include="Views\ManageProjectresource\Edit.cshtml" />
     <Content Include="Views\ManageProjectresource\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

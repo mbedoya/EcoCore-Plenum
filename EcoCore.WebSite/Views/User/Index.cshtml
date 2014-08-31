@@ -1,0 +1,271 @@
+﻿@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Styles.Render("~/Content/css/jspkg-tabs/tabs.css")
+}
+
+<div id="tab-container" class="tab-container">
+    <ul class='etabs'>
+        <li class='tab'><a href="#page-dashboard">Dashboard</a></li>
+        <li class='tab'><a href="#page-ficha">Ficha</a></li>
+        <li class='tab'><a href="#page-resumen">Resumen</a></li>
+        <li class='tab'><a href="#page-recursos">Recursos</a></li>
+    </ul>
+    <div class="ficha" id="page-dashboard">
+
+        <h3>Mis Pendientes</h3>
+        <table>
+            <tr>
+                <th>Campaña
+                </th>
+                <th>Tarea
+                </th>
+                <th>Fecha Meta
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#">Activación La Especial</a>
+                </td>
+                <td>Adicionar recursos necesarios
+                </td>
+                <td>Septiempre 15
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#">Activación La Especial</a>
+                </td>
+                <td>Pasar la cotización inicial a Compras
+                </td>
+                <td>Septiempre 17
+                </td>
+            </tr>
+        </table>
+
+        <h3>Mis Campañas</h3>
+        <table>
+            <tr>
+                <th>Campaña
+                </th>
+                <th>Estado
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#">Activación La Especial</a>
+                </td>
+                <td>Creación de Presupuesto
+                </td>
+            </tr>
+        </table>
+
+
+
+    </div>
+    <div class="ficha" id="page-ficha">
+
+        <table>
+            <tr>
+                <td style="width: 200px;">
+                    <b>Referencia de campaña</b>
+                </td>
+                <td style="width: 300px;">ACTIVACIÓN LA ESPECIAL
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Cliente</b>
+                </td>
+                <td>COMPAÑÍA NACIONAL DE CHOCOLATES
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Marca</b>
+                </td>
+                <td>LA ESPECIAL
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>UEN</b>
+                </td>
+                <td>AGENCIA
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td style="width: 200px;">
+                    <b>Ejecutivo de Cuenta</b>
+                </td>
+                <td style="width: 300px;">SARA ARANGO
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Creativo</b>
+                </td>
+                <td>MARCO RAMÍREZ
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Analista de Compras</b>
+                </td>
+                <td>ANGÉLICA FRANCO
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Productos</b>
+                </td>
+                <td>CAROLINA CARDONA
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td style="width: 200px;">
+                    <b>Fecha de creación</b>
+                </td>
+                <td style="width: 300px;">8 DE JULIO
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Fecha de Ejecución</b>
+                </td>
+                <td>FERIA DE LAS FLORES
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Ciudad de Ejecución</b>
+                </td>
+                <td>MEDELLÍN
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="ficha" id="page-resumen">
+
+        <h3>Recursos Generales</h3>
+        <table>
+            <tr>
+                <th>Actividad
+                </th>
+                <th>Costo
+                </th>
+                <th>Venta
+                </th>
+                <th>% Venta
+                </th>
+                <th>% MC
+                </th>
+            </tr>
+            <tr>
+                <td>RECURSOS
+                </td>
+                <td>$ 38.128.880
+                </td>
+                <td>$ 73.256.509
+                </td>
+                <td>92,13%
+                </td>
+                <td>47,95%
+                </td>
+            </tr>
+            <tr>
+                <td>SERVICIO
+                </td>
+                <td>$ 1.000.000
+                </td>
+                <td>$ 7.500.000
+                </td>
+                <td>650%
+                </td>
+                <td>86,67%
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>TOTAL</b>
+                </td>
+                <td><b>$ 39.128.000</b>
+                </td>
+                <td><b>$ 80.756.509</b>
+                </td>
+                <td><b>106,39%</b>
+                </td>
+                <td>
+                    <b>51,55%</b>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="ficha" id="page-recursos">
+
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>Area</th>
+                <th>Recurso</th>
+                <th>Proveedor</th>
+                <th>Cantidad </th>
+                <th>Duración </th>
+                <th>Costo Unitario </th>
+                <th>Costo Total</th>
+                <th>Venta</th>                
+            </tr>
+            <tr>
+                <td rowspan="2"><a href="#">TRANSPORTE</a></td>
+                <td>CAMIONETA</td>
+                <td>C&C</td>
+                <td>1 </td>
+                <td>2 </td>
+                <td>$3.000.000,00 </td>
+                <td>$6.000.000,00 </td>
+                <td>0 </td>                
+            </tr>
+            <tr>
+                <td>CAMION 300</td>
+                <td>C&C</td>
+                <td>3 </td>
+                <td>2 </td>
+                <td>$500.000,00 </td>
+                <td>$3.000.000,00 </td>
+                <td>0 </td>                
+            </tr>
+
+        </table>
+
+        <input id="btnAdd" type="button" value="Adicionar" />
+
+    </div>
+
+    @section scripts{
+        @Scripts.Render("~/Scripts/jspkg-tabs/jquery.hashchange.min.js")
+        @Scripts.Render("~/Scripts/jspkg-tabs/jquery.easytabs.min.js")
+
+        <script>
+
+            $(document).ready(function () {
+                $('#tab-container').easytabs({
+                    animate: false
+                });
+            });
+        </script>
+    }
+</div>

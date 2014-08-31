@@ -15,61 +15,62 @@
     @Styles.Render("~/Content/css/style_screen.css")
     @Styles.Render("~/Content/css/style_print.css")
     @Styles.Render("~/Content/css/styles.css")
-	@Styles.Render("~/Scripts/datepick/jquery.datepick.css")
-	@Styles.Render("~/Content/css/jquery.fancybox.css")
+    @Styles.Render("~/Scripts/datepick/jquery.datepick.css")
+    @Styles.Render("~/Content/css/jquery.fancybox.css")
 </head>
 <body>
     <div>
 
         <form id="editForm" method="post" enctype="multipart/form-data">
 
-						<input id="ID" name="ID" type="hidden" value="@Model.ID.ToString()" />
-     			Name<br />
-            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 100, options = "" }); }<br />
-						
-						<div class="field_details">
+            <input id="ID" name="ID" type="hidden" value="@Model.ID.ToString()" />
+            Name<br />
+            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 100, options = "" }); }
+            <br />
+
+            <div class="field_details">
                 100 characters
             </div>
-			<br />
-				
+            <br />
+
             <br />
             <input type="submit" value="Save" />
         </form>
 
-		@Scripts.Render("~/Scripts/jquery.js")
+        @Scripts.Render("~/Scripts/jquery.js")
         @Scripts.Render("~/Scripts/jquery.validate.min.js")
         @Scripts.Render("~/Scripts/datepick/jquery.plugin.min.js")
         @Scripts.Render("~/Scripts/datepick/jquery.datepick.min.js")
-		@Scripts.Render("~/Scripts/jquery.fancybox.js")
+        @Scripts.Render("~/Scripts/jquery.fancybox.js")
 
         <script>
 
             $(document).ready(function () {
 
-				$('.fancybox').fancybox();
+                $('.fancybox').fancybox();
 
-				 //DatePick
+                //DatePick
                 $(function () {
 
-					                    
+
                 });
 
 
                 $("#editForm").validate({
                     rules: {
-													  Name: { required: true }
-							                          
+                        Name: { required: true }
+
                     },
                     messages: {
-                        							  Name: "Name is required"
-							                      }
+                        Name: "Name is required"
+                    }
                 });
 
             });
 
 
         </script>
-        
+
     </div>
 </body>
 </html>
