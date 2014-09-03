@@ -29,6 +29,10 @@ namespace Budget.Data
 			{
 				item.ParentResourceID = Convert.ToInt32(row["ParentResourceID"]);
 			}
+			if (row["SortIndex"].GetType() != typeof(DBNull))
+			{
+				item.SortIndex = Convert.ToInt32(row["SortIndex"]);
+			}
 			
 			return item;
 		}
@@ -60,7 +64,7 @@ namespace Budget.Data
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[Plenum.Data.Constants.AppSetting]);
             string FilterSelect = "" +
-                " SELECT  ID,  Name,  ParentResourceID  " +
+                " SELECT  ID,  Name,  ParentResourceID,  SortIndex  " +
                 " FROM resource " +
                 " WHERE Name LIKE '%" + model.Name.Replace("'","").Replace("-","") + "%'";
 
@@ -169,6 +173,9 @@ namespace Budget.Data
 					MySqlParameter paramParentResourceID = new MySqlParameter("pParentResourceID", item.ParentResourceID);
             paramParentResourceID.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramParentResourceID);
+					MySqlParameter paramSortIndex = new MySqlParameter("pSortIndex", item.SortIndex);
+            paramSortIndex.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramSortIndex);
 		
             DataTable results = new DataTable();
             adapter.Fill(results);
@@ -190,6 +197,9 @@ namespace Budget.Data
 					MySqlParameter paramParentResourceID = new MySqlParameter("pParentResourceID", item.ParentResourceID);
             paramParentResourceID.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramParentResourceID);
+					MySqlParameter paramSortIndex = new MySqlParameter("pSortIndex", item.SortIndex);
+            paramSortIndex.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramSortIndex);
 		
             DataTable results = new DataTable();
             adapter.Fill(results);

@@ -16,6 +16,10 @@ namespace Budget.Business
             return ClientDAL.GetAll();
         }
 
+				public virtual List<ClientDataModel> GetClientByCity(int id)
+        {
+            return ClientDAL.GetClientByCity(id);
+        }
 		
 		public virtual ClientDataModel Get(int id, bool useCache = false)
         {
@@ -32,7 +36,7 @@ namespace Budget.Business
             return ClientDAL.Filter(model);
         }
 
-        public virtual void CreateOrUpdate(ClientDataModel item)
+        public virtual int CreateOrUpdate(ClientDataModel item)
         {
 						
 
@@ -42,8 +46,10 @@ namespace Budget.Business
             }
             else
             {
-                ClientDAL.Create(item);
-            }            
+                item.ID = ClientDAL.Create(item);
+            }
+
+			return Convert.ToInt32(item.ID);           
         }     
 
 		public virtual void Delete(int id)

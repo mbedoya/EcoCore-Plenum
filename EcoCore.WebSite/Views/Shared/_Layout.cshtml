@@ -1,4 +1,10 @@
-﻿@using System.Web.Optimization
+﻿@model List<Budget.Models.ClientDataModel>
+
+@using System.Web.Optimization
+
+@{
+    List<Budget.Models.ProjectDataModel> projects;
+}
 
 <!DOCTYPE html>
 
@@ -49,8 +55,11 @@
         <!-- Navigation Level 2 -->
         <div class="nav2">
             <ul>
+                <li>&nbsp;</li>
+                <!--
                 <li><a class="selected" href="/User">Campañas</a></li>
-                <li><a href="#" >Reportes</a></li>                
+                <li><a href="#" >Reportes</a></li>
+                    -->
             </ul>
         </div>
 
@@ -62,12 +71,25 @@
         <div class="nav3">
             <ul>
                 <li class="title">Clientes</li>
-                <li class="group"><a href="#">Argos</a></li>
-                <li class="group"><a href="#">Nacional de Chocolates</a></li>
-                <li><a href="#" class="selected">La Especial</a></li>                
-                <li class="group"><a href="#">CC El Tesoro</a></li>
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <li class="group"><a href="#">@item.Name</a></li>
+                        {
+                            projects = Budget.Business.ProjectBO.GetInstance().GetProjectByClient(Convert.ToInt32(item.ID));
+                        }
+                        foreach (var pItem in projects)
+                        {
+                            <li><a href="#" >@pItem.Name</a></li>
+                        }
+                    }
+                }
+                
             </ul>            
         </div>
+
+        
 
         <!-- 	CONTENT -->
         <div class="content2">

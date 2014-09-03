@@ -11,6 +11,25 @@ namespace Budget.Data
 {
     public class ResourceDAL : BaseResourceDAL
     {
-        
+        public static List<ResourceDataModel> GetParentResources()
+        {
+            List<ResourceDataModel> items = new List<ResourceDataModel>();
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[Plenum.Data.Constants.AppSetting]);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("Core_GetParentResources", connection);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataTable results = new DataTable();
+
+            adapter.Fill(results);
+
+            foreach (DataRow row in results.Rows)
+            {
+                ResourceDataModel item = MapItem(row);
+                items.Add(item);
+            }
+
+            return items;
+        }
     }
 }

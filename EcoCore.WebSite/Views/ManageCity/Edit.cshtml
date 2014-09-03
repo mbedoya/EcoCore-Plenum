@@ -1,4 +1,4 @@
-@model Budget.Models.ResourceDataModel
+@model Plenum.Models.CityDataModel
 
 @using System.Web.Optimization
 
@@ -25,19 +25,12 @@
 
 						<input id="ID" name="ID" type="hidden" value="@Model.ID.ToString()" />
      			Name<br />
-            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 80, options = "" }); }<br />
+            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 45, options = "" }); }<br />
 						
 						<div class="field_details">
-                80 characters
+                45 characters
             </div>
 			<br />
-							ParentResourceID<br />
-            				 				
-					@{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "ParentResourceID", fieldValue = @Model != null ? @Model.ParentResourceID : 0, primaryTable = "Resource", readOnly = false, data = Budget.Business.ResourceBO.GetInstance().GetAll() }); }<br />
-							
-							SortIndex<br />
-            				 					@{ Html.RenderAction("FieldDisplay", "Admin", new { name = "SortIndex", value = Model.SortIndex, type = "text", size = 0, options = "" }); }<br />
-						
 				
             <br />
             <input type="submit" value="Save" />
@@ -64,12 +57,12 @@
 
                 $("#editForm").validate({
                     rules: {
-													  Name: { required: true },
-							                         
+													  Name: { required: true }
+							                          
                     },
                     messages: {
-                        							  Name: "Name is required",
-							                     }
+                        							  Name: "Name is required"
+							                      }
                 });
 
             });

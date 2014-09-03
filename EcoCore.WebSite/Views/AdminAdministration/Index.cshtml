@@ -35,7 +35,12 @@
                 <li><a id="optionBanks" href="#">Banks</a></li>
                 <li><a id="optionBankAccountTypes" href="#">Bank Account Types</a></li>
             </ul>
-        </li>        
+        </li>
+        <li class="group">Others
+            <ul>                
+                <li><a id="optionCities" href="#">Cities</a></li>           
+            </ul>
+        </li>
     </ul>
 
     <ul class="options">
@@ -90,6 +95,11 @@
             $("#optionBankAccountTypes").on("click", function () {
                 $("#pageTitle").html("Bank Account Types");
                 $("#pageIframe").attr("src", "/admin/managebankaccounttype");
+            });
+
+            $("#optionCities").on("click", function () {
+                $("#pageTitle").html("Cities");
+                $("#pageIframe").attr("src", "/admin/managecity");
             });
 
             $("#optionProductBulkImport").on("click", function () {

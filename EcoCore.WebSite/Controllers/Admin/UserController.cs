@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Budget.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,12 @@ namespace EcoCore.WebSite.Controllers.Admin
 
         public ActionResult Index()
         {
-            return View();
+            return View(ClientBO.GetInstance().GetAll());
+        }
+
+        public ActionResult Account()
+        {
+            return View(ClientBO.GetInstance().GetAll());
         }
 
     }

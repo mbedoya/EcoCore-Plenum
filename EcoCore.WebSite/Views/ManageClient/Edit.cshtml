@@ -32,6 +32,19 @@
                 100 characters
             </div>
             <br />
+            Address<br />
+            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Address", value = Model.Address, type = "text", size = 100, options = "" }); }
+            <br />
+
+            <div class="field_details">
+                100 characters
+            </div>
+            <br />
+            CityID<br />
+
+            @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "CityID", fieldValue = @Model != null ? @Model.CityID : 0, primaryTable = "City", readOnly = false, data = Plenum.Business.CityBO.GetInstance().GetAll() }); }
+            <br />
+
 
             <br />
             <input type="submit" value="Save" />
@@ -58,11 +71,11 @@
 
                 $("#editForm").validate({
                     rules: {
-                        Name: { required: true }
+                        Name: { required: true },
 
                     },
                     messages: {
-                        Name: "Name is required"
+                        Name: "Name is required",
                     }
                 });
 

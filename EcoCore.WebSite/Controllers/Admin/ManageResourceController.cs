@@ -1,5 +1,6 @@
 using Budget.Business;
 using Budget.Models;
+using EcoCore.WebSite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,23 @@ namespace EcoCore.WebSite.Controllers.Admin
             ResourceBO.GetInstance().Delete(id);
 
             return Json(new { success=true }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetChildren(int? id)
+        {
+            ResourceTreeModelUI model = new ResourceTreeModelUI();
+
+            if (id == null)
+            {
+                model.ParentResources = true;
+                model.Resources = ResourceBO.GetInstance().GetParentResources();
+            }
+            else
+            {
+                model.Resources = ResourceBO.GetInstance().GetResourceByResource(Convert.ToInt32(id));
+            }
+
+            return View(model);
         }
 
     }

@@ -49,6 +49,54 @@ namespace Budget.Data
 			{
 				item.Notes = Convert.ToString(row["Notes"]);
 			}
+			if (row["CommercialName"].GetType() != typeof(DBNull))
+			{
+				item.CommercialName = Convert.ToString(row["CommercialName"]);
+			}
+			if (row["Regimen"].GetType() != typeof(DBNull))
+			{
+				item.Regimen = Convert.ToString(row["Regimen"]);
+			}
+			if (row["NIT"].GetType() != typeof(DBNull))
+			{
+				item.NIT = Convert.ToString(row["NIT"]);
+			}
+			if (row["DV"].GetType() != typeof(DBNull))
+			{
+				item.DV = Convert.ToString(row["DV"]);
+			}
+			if (row["ActivityCode"].GetType() != typeof(DBNull))
+			{
+				item.ActivityCode = Convert.ToInt32(row["ActivityCode"]);
+			}
+			if (row["Address"].GetType() != typeof(DBNull))
+			{
+				item.Address = Convert.ToString(row["Address"]);
+			}
+			if (row["CityID"].GetType() != typeof(DBNull))
+			{
+				item.CityID = Convert.ToInt32(row["CityID"]);
+			}
+			if (row["Phone"].GetType() != typeof(DBNull))
+			{
+				item.Phone = Convert.ToString(row["Phone"]);
+			}
+			if (row["MobilePhone"].GetType() != typeof(DBNull))
+			{
+				item.MobilePhone = Convert.ToString(row["MobilePhone"]);
+			}
+			if (row["Email"].GetType() != typeof(DBNull))
+			{
+				item.Email = Convert.ToString(row["Email"]);
+			}
+			if (row["Representative"].GetType() != typeof(DBNull))
+			{
+				item.Representative = Convert.ToString(row["Representative"]);
+			}
+			if (row["ContactName"].GetType() != typeof(DBNull))
+			{
+				item.ContactName = Convert.ToString(row["ContactName"]);
+			}
 			
 			return item;
 		}
@@ -80,7 +128,7 @@ namespace Budget.Data
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[Plenum.Data.Constants.AppSetting]);
             string FilterSelect = "" +
-                " SELECT  ID,  Name,  BankID,  BankAccountNumber,  BankAccountTypeID,  BankAccountOwner,  IdNumber,  Notes  " +
+                " SELECT  ID,  Name,  BankID,  BankAccountNumber,  BankAccountTypeID,  BankAccountOwner,  IdNumber,  Notes,  CommercialName,  Regimen,  NIT,  DV,  ActivityCode,  Address,  CityID,  Phone,  MobilePhone,  Email,  Representative,  ContactName  " +
                 " FROM provider " +
                 " WHERE Name LIKE '%" + model.Name.Replace("'","").Replace("-","") + "%'";
 
@@ -100,6 +148,30 @@ namespace Budget.Data
             return items;
         }
 
+				 public static List<ProviderDataModel> GetProviderByCity(int id)
+        {
+            List<ProviderDataModel> items = new List<ProviderDataModel>();
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[Plenum.Data.Constants.AppSetting]);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("Core_GetProviderByCity", connection);
+			adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+			MySqlParameter paramID = new MySqlParameter("pId", id);
+            paramID.Direction = ParameterDirection.Input;            
+            adapter.SelectCommand.Parameters.Add(paramID);
+
+            DataTable results = new DataTable();
+
+            adapter.Fill(results);
+
+            foreach (DataRow row in results.Rows)
+            {
+                ProviderDataModel item = MapItem(row);
+                items.Add(item);
+            }
+
+            return items;
+        }
 				 public static List<ProviderDataModel> GetProviderByBank(int id)
         {
             List<ProviderDataModel> items = new List<ProviderDataModel>();
@@ -228,6 +300,42 @@ namespace Budget.Data
 					MySqlParameter paramNotes = new MySqlParameter("pNotes", item.Notes);
             paramNotes.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramNotes);
+					MySqlParameter paramCommercialName = new MySqlParameter("pCommercialName", item.CommercialName);
+            paramCommercialName.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramCommercialName);
+					MySqlParameter paramRegimen = new MySqlParameter("pRegimen", item.Regimen);
+            paramRegimen.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramRegimen);
+					MySqlParameter paramNIT = new MySqlParameter("pNIT", item.NIT);
+            paramNIT.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramNIT);
+					MySqlParameter paramDV = new MySqlParameter("pDV", item.DV);
+            paramDV.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramDV);
+					MySqlParameter paramActivityCode = new MySqlParameter("pActivityCode", item.ActivityCode);
+            paramActivityCode.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramActivityCode);
+					MySqlParameter paramAddress = new MySqlParameter("pAddress", item.Address);
+            paramAddress.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramAddress);
+					MySqlParameter paramCityID = new MySqlParameter("pCityID", item.CityID);
+            paramCityID.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramCityID);
+					MySqlParameter paramPhone = new MySqlParameter("pPhone", item.Phone);
+            paramPhone.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramPhone);
+					MySqlParameter paramMobilePhone = new MySqlParameter("pMobilePhone", item.MobilePhone);
+            paramMobilePhone.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramMobilePhone);
+					MySqlParameter paramEmail = new MySqlParameter("pEmail", item.Email);
+            paramEmail.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramEmail);
+					MySqlParameter paramRepresentative = new MySqlParameter("pRepresentative", item.Representative);
+            paramRepresentative.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramRepresentative);
+					MySqlParameter paramContactName = new MySqlParameter("pContactName", item.ContactName);
+            paramContactName.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramContactName);
 		
             DataTable results = new DataTable();
             adapter.Fill(results);
@@ -264,6 +372,42 @@ namespace Budget.Data
 					MySqlParameter paramNotes = new MySqlParameter("pNotes", item.Notes);
             paramNotes.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramNotes);
+					MySqlParameter paramCommercialName = new MySqlParameter("pCommercialName", item.CommercialName);
+            paramCommercialName.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramCommercialName);
+					MySqlParameter paramRegimen = new MySqlParameter("pRegimen", item.Regimen);
+            paramRegimen.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramRegimen);
+					MySqlParameter paramNIT = new MySqlParameter("pNIT", item.NIT);
+            paramNIT.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramNIT);
+					MySqlParameter paramDV = new MySqlParameter("pDV", item.DV);
+            paramDV.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramDV);
+					MySqlParameter paramActivityCode = new MySqlParameter("pActivityCode", item.ActivityCode);
+            paramActivityCode.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramActivityCode);
+					MySqlParameter paramAddress = new MySqlParameter("pAddress", item.Address);
+            paramAddress.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramAddress);
+					MySqlParameter paramCityID = new MySqlParameter("pCityID", item.CityID);
+            paramCityID.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramCityID);
+					MySqlParameter paramPhone = new MySqlParameter("pPhone", item.Phone);
+            paramPhone.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramPhone);
+					MySqlParameter paramMobilePhone = new MySqlParameter("pMobilePhone", item.MobilePhone);
+            paramMobilePhone.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramMobilePhone);
+					MySqlParameter paramEmail = new MySqlParameter("pEmail", item.Email);
+            paramEmail.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramEmail);
+					MySqlParameter paramRepresentative = new MySqlParameter("pRepresentative", item.Representative);
+            paramRepresentative.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramRepresentative);
+					MySqlParameter paramContactName = new MySqlParameter("pContactName", item.ContactName);
+            paramContactName.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramContactName);
 		
             DataTable results = new DataTable();
             adapter.Fill(results);

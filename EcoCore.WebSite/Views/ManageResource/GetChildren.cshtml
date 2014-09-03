@@ -1,0 +1,31 @@
+﻿@model EcoCore.WebSite.Models.ResourceTreeModelUI
+
+@if (Model.ParentResources)
+{
+    <ul>
+        <li id="0" data-jstree='{"opened":true}' class="cmenu1" >Recursos
+            @if (Model.Resources != null && Model.Resources.Count > 0)
+                {
+                    foreach (var item in Model.Resources)
+                    {
+                        <ul>
+                            <li class="jstree-closed" id="@item.ID" data-jstree='@("{\"icon\":\"/content/img/icon_document.gif\"}" )'>@item.Name
+                            </li>
+                        </ul>
+                    }
+                } 
+        </li>
+    </ul>
+}else{
+    if (Model.Resources != null && Model.Resources.Count > 0)
+    {
+        foreach (var item in Model.Resources)
+        {
+            <ul>
+                <li class="jstree-closed" id="@item.ID" data-jstree='@("{\"icon\":\"/content/img/icon_document.gif\"}" )'>@item.Name</li>
+            </ul>
+        }
+    }else{
+         <ul></ul>
+     }
+}

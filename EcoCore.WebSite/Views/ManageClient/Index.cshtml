@@ -28,8 +28,7 @@
 
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th>Name </th>
-                <th>&nbsp;</th>
+                <th style="width:200px;">Name </th>
                 <th>&nbsp;
                 </th>
             </tr>
@@ -38,8 +37,7 @@
                 foreach (var item in Model)
                 {
                 <tr>
-                    <td><a href="/admin/manageclient/edit/@item.ID">@item.Name</a></td>
-                    <td><a href="/admin/manageproject/">Projects</a></td>
+                    <td>@item.Name </td>
                     <td>
                         <a href="/admin/manageclient/edit/@item.ID">edit</a>&nbsp;
 						<a class="deleteItem" item="@item.ID" href="#">delete</a>

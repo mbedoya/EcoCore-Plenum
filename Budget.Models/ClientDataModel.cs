@@ -7,6 +7,8 @@ namespace Budget.Models
 {
     public class ClientDataModel : BaseDataModel
     {   
+		public string  Address { get; set; }
+		public int?  CityID { get; set; }
 						
     }    
 }

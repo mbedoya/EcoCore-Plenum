@@ -15,86 +15,135 @@
     @Styles.Render("~/Content/css/style_screen.css")
     @Styles.Render("~/Content/css/style_print.css")
     @Styles.Render("~/Content/css/styles.css")
+    @Styles.Render("~/Scripts/jstree/themes/default/style.min.css")
 </head>
 <body>
     <div>
 
         <form id="indexForm">
-			
-			Name<br />
+            Name<br />
             <input id="Name" name="Name" type="text" />
             <br />
             <input type="submit" value="Search" />
         </form>
 
+        <div id="siteContent" style="margin: 5px;">
+        </div>
+
+         @if (Model != null && Model.Count > 0 && false)
+         {
         <table cellpadding="0" cellspacing="0">
             <tr>
-                				<th> Name </th>	
-				                <th>&nbsp;
+                <th>Name </th>
+                <th>&nbsp;
                 </th>
             </tr>
-            @if (Model != null && Model.Count > 0)
-            {
-                foreach (var item in Model)
+           
+                @foreach (var item in Model)
                 {
                 <tr>
-                    					<td> @item.Name </td>	
-					                    <td>
+                    <td>@item.Name </td>
+                    <td>
                         <a href="/admin/manageresource/edit/@item.ID">edit</a>&nbsp;
 						<a class="deleteItem" item="@item.ID" href="#">delete</a>
                     </td>
                 </tr>                    
-                }
-
-            }
+                }            
 
         </table>
+             
+             <input id="btnAdd" type="button" value="Add Resource" />
+         }
+        
 
-		<input id="btnAdd" type="button" value="Add Resource" />
-
-        @Scripts.Render("~/Scripts/jquery.js")        
+        @Scripts.Render("~/Scripts/jquery.js")
+        @Scripts.Render("~/Scripts/jstree/jstree.min.js")
 
         <script>
 
             $(document).ready(function () {
 
-                $("#btnAdd").on("click", function(){
+                $('#siteContent').jstree({
+                    'core': {
+                        'data': {
+                            'url': function (node) {
+                                return '/ManageResource/GetChildren/';
+                            },
+                            'data': function (node) {
+                                return { 'id': node.id }
+                            }
+                        }
+                    },                    
+                    "plugins": [
+                      "contextmenu"
+                    ],
+                    "contextmenu": {
+                        "items": function ($node) {
+                            return {
+                                "Create": {
+                                    "label": "Create Resource",
+                                    "action": function (obj) {
+                                        window.location.href = '/Admin/Manageresource/Edit/';
+                                    }
+                                },
+                                "Rename": {
+                                    "label": "Edit",
+                                    "action": function (obj) {
+                                        window.location.href = '/Admin/Manageresource/Edit/' + selected_node_id;
+                                    }
+                                },
+                                "Delete": {
+                                    "label": "Delete an employee",
+                                    "action": function (obj) {
+                                        this.remove(obj);
+                                    }
+                                }
+                            };
+                        }
+                    }
+                });
+
+                $('#siteContent').on("select_node.jstree", function (e, data) {
+                    selected_node_id = data.node.id;                    
+                });
+
+                $("#btnAdd").on("click", function () {
                     window.location.href = '/Admin/Manageresource/Edit/';
                 });
 
-				 $(".deleteItem").on("click", function () {
+                $(".deleteItem").on("click", function () {
 
-                if (confirm("Are you sure you want to delete this Resource?")) {
+                    if (confirm("Are you sure you want to delete this Resource?")) {
 
-                    var itemID = $(this).attr("item");
+                        var itemID = $(this).attr("item");
 
-                    //Check email and password
-                    $.ajax({
-                        url: "/Admin/ManageResource/Delete",
-                        dataType: "json",
-                        type: "POST",
-                        data: { id: itemID },
-                        success: function (data) {
+                        //Check email and password
+                        $.ajax({
+                            url: "/Admin/ManageResource/Delete",
+                            dataType: "json",
+                            type: "POST",
+                            data: { id: itemID },
+                            success: function (data) {
 
-                        },
-                        error: function (a, b, c) {
-                            alert("Error Deleting Resource");
-                        }
-                    })
-                        .then(function (response) {
-
-                            if (response.success) {
-                                alert("Item Deleted");
-								window.location.href = '/Admin/ManageResource/';
+                            },
+                            error: function (a, b, c) {
+                                alert("Error Deleting Resource");
                             }
+                        })
+                            .then(function (response) {
 
-                        });
-                }
+                                if (response.success) {
+                                    alert("Item Deleted");
+                                    window.location.href = '/Admin/ManageResource/';
+                                }
+
+                            });
+                    }
+
+                });
 
             });
-
-            });
-        </script>		
+        </script>
 
     </div>
 </body>

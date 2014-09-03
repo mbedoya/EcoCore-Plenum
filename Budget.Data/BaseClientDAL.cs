@@ -25,6 +25,14 @@ namespace Budget.Data
 			{
 				item.Name = Convert.ToString(row["Name"]);
 			}
+			if (row["Address"].GetType() != typeof(DBNull))
+			{
+				item.Address = Convert.ToString(row["Address"]);
+			}
+			if (row["CityID"].GetType() != typeof(DBNull))
+			{
+				item.CityID = Convert.ToInt32(row["CityID"]);
+			}
 			
 			return item;
 		}
@@ -56,7 +64,7 @@ namespace Budget.Data
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[Plenum.Data.Constants.AppSetting]);
             string FilterSelect = "" +
-                " SELECT  ID,  Name  " +
+                " SELECT  ID,  Name,  Address,  CityID  " +
                 " FROM client " +
                 " WHERE Name LIKE '%" + model.Name.Replace("'","").Replace("-","") + "%'";
 
@@ -76,6 +84,30 @@ namespace Budget.Data
             return items;
         }
 
+				 public static List<ClientDataModel> GetClientByCity(int id)
+        {
+            List<ClientDataModel> items = new List<ClientDataModel>();
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[Plenum.Data.Constants.AppSetting]);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("Core_GetClientByCity", connection);
+			adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+			MySqlParameter paramID = new MySqlParameter("pId", id);
+            paramID.Direction = ParameterDirection.Input;            
+            adapter.SelectCommand.Parameters.Add(paramID);
+
+            DataTable results = new DataTable();
+
+            adapter.Fill(results);
+
+            foreach (DataRow row in results.Rows)
+            {
+                ClientDataModel item = MapItem(row);
+                items.Add(item);
+            }
+
+            return items;
+        }
 		
         public static ClientDataModel Get(int id)
         {
@@ -138,6 +170,12 @@ namespace Budget.Data
 					MySqlParameter paramName = new MySqlParameter("pName", item.Name);
             paramName.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramName);
+					MySqlParameter paramAddress = new MySqlParameter("pAddress", item.Address);
+            paramAddress.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramAddress);
+					MySqlParameter paramCityID = new MySqlParameter("pCityID", item.CityID);
+            paramCityID.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramCityID);
 		
             DataTable results = new DataTable();
             adapter.Fill(results);
@@ -156,6 +194,12 @@ namespace Budget.Data
 					MySqlParameter paramName = new MySqlParameter("pName", item.Name);
             paramName.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramName);
+					MySqlParameter paramAddress = new MySqlParameter("pAddress", item.Address);
+            paramAddress.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramAddress);
+					MySqlParameter paramCityID = new MySqlParameter("pCityID", item.CityID);
+            paramCityID.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramCityID);
 		
             DataTable results = new DataTable();
             adapter.Fill(results);

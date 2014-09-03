@@ -36,7 +36,7 @@ namespace Budget.Business
             return ResourceDAL.Filter(model);
         }
 
-        public virtual void CreateOrUpdate(ResourceDataModel item)
+        public virtual int CreateOrUpdate(ResourceDataModel item)
         {
 						
 
@@ -46,8 +46,10 @@ namespace Budget.Business
             }
             else
             {
-                ResourceDAL.Create(item);
-            }            
+                item.ID = ResourceDAL.Create(item);
+            }
+
+			return Convert.ToInt32(item.ID);           
         }     
 
 		public virtual void Delete(int id)

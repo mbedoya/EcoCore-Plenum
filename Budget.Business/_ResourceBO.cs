@@ -31,10 +31,5 @@ namespace Budget.Business
 			return base.GetAll(id);            
         }
 
-        public List<ResourceDataModel> GetParentResources(int id = 0)
-        {
-            return ResourceDAL.GetParentResources();
-        }
-
     }
 }

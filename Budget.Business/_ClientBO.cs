@@ -11,29 +11,24 @@ using Plenum.Utilities.Cache;
 
 namespace Budget.Business
 {
-    public class ResourceBO : BaseResourceBO
+    public class ClientBO : BaseClientBO
     {
-        private static ResourceBO instance;
+        private static ClientBO instance;
 
-        public static ResourceBO GetInstance()
+        public static ClientBO GetInstance()
         {
             if (instance == null)
             {
-                instance = new ResourceBO();
+                instance = new ClientBO();
             }
 
             return instance;
         }
 
-		public override List<ResourceDataModel> GetAll(int id = 0)
+		public override List<ClientDataModel> GetAll(int id = 0)
         {
-			HttpContext.Current.Session["ResourceParentID"] = null;
+			HttpContext.Current.Session["ClientParentID"] = null;
 			return base.GetAll(id);            
-        }
-
-        public List<ResourceDataModel> GetParentResources(int id = 0)
-        {
-            return ResourceDAL.GetParentResources();
         }
 
     }

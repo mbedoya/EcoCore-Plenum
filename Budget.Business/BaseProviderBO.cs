@@ -16,6 +16,10 @@ namespace Budget.Business
             return ProviderDAL.GetAll();
         }
 
+				public virtual List<ProviderDataModel> GetProviderByCity(int id)
+        {
+            return ProviderDAL.GetProviderByCity(id);
+        }
 				public virtual List<ProviderDataModel> GetProviderByBank(int id)
         {
             return ProviderDAL.GetProviderByBank(id);
@@ -40,7 +44,7 @@ namespace Budget.Business
             return ProviderDAL.Filter(model);
         }
 
-        public virtual void CreateOrUpdate(ProviderDataModel item)
+        public virtual int CreateOrUpdate(ProviderDataModel item)
         {
 						
 
@@ -50,8 +54,10 @@ namespace Budget.Business
             }
             else
             {
-                ProviderDAL.Create(item);
-            }            
+                item.ID = ProviderDAL.Create(item);
+            }
+
+			return Convert.ToInt32(item.ID);           
         }     
 
 		public virtual void Delete(int id)

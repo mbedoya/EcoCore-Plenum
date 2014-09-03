@@ -209,4 +209,8 @@ table tr td.row a {color:#000; text-decoration:underline; font-size: 15px}
 
 .field_details { color: #ccc; font-size: 12px;}
 
-
+.ficha {
+    padding: 20px;
+    margin-right: 10px;
+    border: solid 1px #A6D13B;
+}
