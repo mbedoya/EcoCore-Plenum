@@ -17,6 +17,7 @@
     @Styles.Render("~/Content/css/styles.css")
     @Styles.Render("~/Scripts/datepick/jquery.datepick.css")
     @Styles.Render("~/Content/css/jquery.fancybox.css")
+    @Styles.Render("~/Content/css/jspkg-tabs/tabs.css")
 </head>
 <body>
     <div>
@@ -24,26 +25,126 @@
         <form id="editForm" method="post" enctype="multipart/form-data">
 
             <input id="ID" name="ID" type="hidden" value="@Model.ID.ToString()" />
-            Name<br />
-            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 100, options = "" }); }
-            <br />
 
-            <div class="field_details">
-                100 characters
+            <div id="tab-container" class="tab-container">
+                <ul class='etabs'>
+                    <li class='tab'><a href="#page-main">PRINCIPAL</a></li>
+                    <li class='tab'><a href="#page-brands">MARCAS</a></li>
+                    <li class='tab'><a href="#page-sale">TARIFAS</a></li>
+                </ul>
+
+                <!-- MAIN INFO -->
+                <div class="ficha" id="page-main">
+
+                    @EcoCore.WebSite.Languages.EcoResources.Name<br />
+                    @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 100, options = "" }); }
+                    <br />
+
+                    <div class="field_details">
+                        100 characters
+                    </div>
+                    <br />
+                    Dirección<br />
+                    @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Address", value = Model.Address, type = "text", size = 100, options = "" }); }
+                    <br />
+
+                    <div class="field_details">
+                        100 characters
+                    </div>
+                    <br />
+                    Ciudad<br />
+
+                    @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "CityID", fieldValue = @Model != null ? @Model.CityID : 0, primaryTable = "City", readOnly = false, data = Plenum.Business.CityBO.GetInstance().GetAll() }); }
+                    <br />
+
+                </div>
+
+                <!-- BRANDS -->
+                <div class="ficha" id="page-brands">
+
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th style="width:200px;">@EcoCore.WebSite.Languages.EcoResources.Name</th>
+                            <th>Contacto
+                            </th>
+                            <th>Cargo
+                            </th>
+                            <th>
+                                Correo
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                ALCALDIA DE MEDELLIN
+                            </td>
+                            <td>
+                                CLAUDIA RESTREPO
+                            </td>
+                            <td>
+                                VICEALCALDESA
+                            </td>
+                            <td>
+                                claudia.restrepo@medellin.gov.co
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ALCALDIA DE MEDELLIN
+                            </td>
+                            <td>
+                                MARIA DEL ROSARIO ESCOBAR
+                            </td>
+                            <td>
+                                SECRETARIA DE CULTURA
+                            </td>
+                            <td>
+                                mariad.escobar@medellin.gov.co
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <!-- BRANDS -->
+                <div class="ficha" id="page-sale">
+
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th style="width:200px;">Area</th>
+                            <th>
+                                Recurso
+                            </th>
+                            <th>Valor
+                            </th>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">
+                                SERVICIOS ESPECIALIZADOS DE COMUNICACIÓN
+                            </td>
+                            <td>
+                                ARQUITECTURA COMERCIAL
+                            </td>
+                            <td>
+                                $ 1'000.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                IDENTIDAD VISUAL
+                            </td>
+                            <td>
+                                $ 1'500.000
+                            </td>
+                        </tr>
+                    </table>
+
+                    <input id="btnAdd" type="button" value="Adicionar Tarifa" />
+
+                </div>
+
             </div>
-            <br />
-            Address<br />
-            @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Address", value = Model.Address, type = "text", size = 100, options = "" }); }
-            <br />
 
-            <div class="field_details">
-                100 characters
-            </div>
-            <br />
-            CityID<br />
 
-            @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "CityID", fieldValue = @Model != null ? @Model.CityID : 0, primaryTable = "City", readOnly = false, data = Plenum.Business.CityBO.GetInstance().GetAll() }); }
-            <br />
 
 
             <br />
@@ -56,9 +157,16 @@
         @Scripts.Render("~/Scripts/datepick/jquery.datepick.min.js")
         @Scripts.Render("~/Scripts/jquery.fancybox.js")
 
+        @Scripts.Render("~/Scripts/jspkg-tabs/jquery.hashchange.min.js")
+        @Scripts.Render("~/Scripts/jspkg-tabs/jquery.easytabs.min.js")
+
         <script>
 
             $(document).ready(function () {
+
+                $('#tab-container').easytabs({
+                    animate: false
+                });
 
                 $('.fancybox').fancybox();
 

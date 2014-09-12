@@ -20,15 +20,15 @@
     <div>
 
         <form id="indexForm">
-            Name<br />
+            @EcoCore.WebSite.Languages.EcoResources.Name<br />
             <input id="Name" name="Name" type="text" />
             <br />
-            <input type="submit" value="Search" />
+            <input type="submit" value="Buscar" />
         </form>
 
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th style="width:200px;">Name </th>
+                <th style="width:200px;">@EcoCore.WebSite.Languages.EcoResources.Name</th>
                 <th>&nbsp;
                 </th>
             </tr>
@@ -39,8 +39,8 @@
                 <tr>
                     <td>@item.Name </td>
                     <td>
-                        <a href="/admin/manageclient/edit/@item.ID">edit</a>&nbsp;
-						<a class="deleteItem" item="@item.ID" href="#">delete</a>
+                        <a href="/admin/manageclient/edit/@item.ID">@EcoCore.WebSite.Languages.EcoResources.Edit</a>&nbsp;
+						<a class="deleteItem" item="@item.ID" href="#">@EcoCore.WebSite.Languages.EcoResources.Delete</a>
                     </td>
                 </tr>                    
                 }
@@ -49,7 +49,7 @@
 
         </table>
 
-        <input id="btnAdd" type="button" value="Add Client" />
+        <input id="btnAdd" type="button" value="Nuevo" />
 
         @Scripts.Render("~/Scripts/jquery.js")
 

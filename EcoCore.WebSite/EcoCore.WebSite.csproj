@@ -201,6 +201,7 @@
     <Content Include="Content\img\pets.png" />
     <Content Include="Content\img\recycle_bin.png" />
     <Content Include="Content\img\strawberries.jpg" />
+    <Content Include="Content\img\warning-icon.png" />
     <Content Include="Content\img\world.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\datepick\jquery.datepick.css" />
@@ -238,7 +239,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -261,21 +264,21 @@
     <Content Include="Scripts\jstree\bootstrap\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Languages\EcoResources.resx">
+    <EmbeddedResource Include="Languages\EcoResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EcoResources.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Languages\EcoResources.es-CO.resx">
+    <EmbeddedResource Include="Languages\EcoResources.es-CO.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EcoResources.es-CO.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ManageClient\Edit.cshtml" />

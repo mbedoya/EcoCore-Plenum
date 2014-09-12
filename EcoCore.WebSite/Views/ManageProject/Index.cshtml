@@ -23,13 +23,12 @@
             Name<br />
             <input id="Name" name="Name" type="text" />
             <br />
-            <input type="submit" value="Search" />
+            <input type="submit" value="Buscar" />
         </form>
 
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th>Name</th>
-                <th>&nbsp;</th>
+                <th>Nombre</th>                
                 <th>&nbsp;
                 </th>
             </tr>
@@ -38,11 +37,10 @@
                 foreach (var item in Model)
                 {
                 <tr>
-                    <td style="width:250px;">@item.Name </td>
-                    <td><a href="/admin/manageprojectresource/">Bugdet</a></td>
+                    <td style="width:250px;">@item.Name </td>                    
                     <td>
-                        <a href="/admin/manageproject/edit/@item.ID">edit</a>&nbsp;
-						<a class="deleteItem" item="@item.ID" href="#">delete</a>
+                        <a href="/admin/manageproject/edit/@item.ID">Editar</a>&nbsp;
+						<a class="deleteItem" item="@item.ID" href="#">Eliminar</a>
                     </td>
                 </tr>                    
                 }
@@ -51,7 +49,7 @@
 
         </table>
 
-        <input id="btnAdd" type="button" value="Add Project" />
+        <input id="btnAdd" type="button" value="Nuevo" />
 
         @Scripts.Render("~/Scripts/jquery.js")
 

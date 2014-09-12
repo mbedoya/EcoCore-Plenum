@@ -20,7 +20,7 @@
     <div>
 
         <form id="indexForm">
-            Name<br />
+            @EcoCore.WebSite.Languages.EcoResources.Name<br />
             <input id="Name" name="Name" type="text" />
             <br />
             <input type="submit" value="Search" />
@@ -39,8 +39,8 @@
                 <tr>
                     <td>@item.CommercialName </td>
                     <td>
-                        <a href="/admin/manageprovider/edit/@item.ID">edit</a>&nbsp;
-						<a class="deleteItem" item="@item.ID" href="#">delete</a>
+                        <a href="/admin/manageprovider/edit/@item.ID">Editar</a>&nbsp;
+						<a class="deleteItem" item="@item.ID" href="#">Eliminar</a>
                     </td>
                 </tr>                    
                 }

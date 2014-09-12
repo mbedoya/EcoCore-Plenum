@@ -31,6 +31,8 @@
                 <ul class='etabs'>
                     <li class='tab'><a href="#page-main">PRINCIPAL</a></li>
                     <li class='tab'><a href="#page-financial">FINANCIERA</a></li>
+                    <li class='tab'><a href="#page-cost">TARIFAS</a></li>
+                    <li class='tab'><a href="#page-attachments">ADJUNTOS</a></li>
                 </ul>
 
                 <!-- MAIN INFO -->
@@ -38,7 +40,7 @@
 
                     <table>
                         <tr>
-                            <td>Name<br />
+                            <td>@EcoCore.WebSite.Languages.EcoResources.Name<br />
                                 @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 80, options = "" }); }
                                 <br />
 
@@ -47,7 +49,7 @@
                                 </div>
                                 <br />
                             </td>
-                            <td>CommercialName<br />
+                            <td>Nombre Comercial<br />
                                 @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "CommercialName", value = Model.CommercialName, type = "text", size = 80, options = "" }); }
                                 <br />
 
@@ -87,13 +89,13 @@
                                 </div>
                                 <br />
                             </td>
-                            <td>ActivityCode<br />
+                            <td>Código de actividad<br />
                                 @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "ActivityCode", value = Model.ActivityCode, type = "text", size = 0, options = "" }); }
                                 <br />
                             </td>
                         </tr>
                         <tr>
-                            <td>Address<br />
+                            <td>Dirección<br />
                                 @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Address", value = Model.Address, type = "text", size = 100, options = "" }); }
                                 <br />
 
@@ -102,14 +104,14 @@
                                 </div>
                                 <br />
                             </td>
-                            <td>CityID<br />
+                            <td>Ciudad<br />
 
                                 @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "CityID", fieldValue = @Model != null ? @Model.CityID : 0, primaryTable = "City", readOnly = false, data = Plenum.Business.CityBO.GetInstance().GetAll() }); }
                                 <br />
                             </td>
                         </tr>
                         <tr>
-                            <td>Phone<br />
+                            <td>Teléfono<br />
                                 @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Phone", value = Model.Phone, type = "text", size = 50, options = "" }); }
                                 <br />
 
@@ -118,7 +120,7 @@
                                 </div>
                                 <br />
                             </td>
-                            <td>MobilePhone<br />
+                            <td>Móvik<br />
                                 @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "MobilePhone", value = Model.MobilePhone, type = "text", size = 20, options = "" }); }
                                 <br />
 
@@ -138,7 +140,7 @@
                                 </div>
                                 <br />
                             </td>
-                            <td>Representative<br />
+                            <td>Representante<br />
                                 @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Representative", value = Model.Representative, type = "text", size = 45, options = "" }); }
                                 <br />
 
@@ -150,7 +152,7 @@
                         </tr>
                     </table>
 
-                    ContactName<br />
+                    Contacto<br />
                     @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "ContactName", value = Model.ContactName, type = "text", size = 45, options = "" }); }
                     <br />
 
@@ -162,12 +164,12 @@
                 </div>
 
                 <div class="ficha" id="page-financial">
-                    BankID<br />
+                    Banco<br />
 
                     @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "BankID", fieldValue = @Model != null ? @Model.BankID : 0, primaryTable = "Bank", readOnly = false, data = Budget.Business.BankBO.GetInstance().GetAll() }); }
                     <br />
 
-                    BankAccountNumber<br />
+                    Número de cuenta<br />
                     @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "BankAccountNumber", value = Model.BankAccountNumber, type = "text", size = 45, options = "" }); }
                     <br />
 
@@ -175,12 +177,12 @@
                         45 characters
                     </div>
                     <br />
-                    BankAccountTypeID<br />
+                    Tipo de cuenta<br />
 
                     @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "BankAccountTypeID", fieldValue = @Model != null ? @Model.BankAccountTypeID : 0, primaryTable = "Bankaccounttype", readOnly = false, data = Budget.Business.BankaccounttypeBO.GetInstance().GetAll() }); }
                     <br />
 
-                    BankAccountOwner<br />
+                    Dueño de la cuenta<br />
                     @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "BankAccountOwner", value = Model.BankAccountOwner, type = "text", size = 70, options = "" }); }
                     <br />
 
@@ -188,7 +190,7 @@
                         70 characters
                     </div>
                     <br />
-                    IdNumber<br />
+                    Identificación<br />
                     @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "IdNumber", value = Model.IdNumber, type = "text", size = 30, options = "" }); }
                     <br />
 
@@ -196,7 +198,7 @@
                         30 characters
                     </div>
                     <br />
-                    Notes<br />
+                    Notas<br />
                     @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Notes", value = Model.Notes, type = "text", size = 500, options = "" }); }
                     <br />
 
@@ -206,6 +208,46 @@
                     <br />
 
                 </div>
+
+                <div class="ficha" id="page-cost">
+
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th style="width:200px;">Area</th>
+                            <th>
+                                Recurso
+                            </th>
+                            <th>Valor
+                            </th>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">
+                                PRODUCCIÓN TÉCNICA
+                            </td>
+                            <td>
+                                CIRCUITO CERRADO DE TV
+                            </td>
+                            <td>
+                                $ 1'000.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                PANTALLA DE LEDS
+                            </td>
+                            <td>
+                                $ 1'500.000
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="ficha" id="page-attachments">
+
+                    ADJUNTOS
+
+                    </div>
 
             </div>
 

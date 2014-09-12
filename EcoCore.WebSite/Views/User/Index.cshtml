@@ -1,163 +1,167 @@
-﻿@using System.Web.Optimization
+﻿@model List<Budget.Models.ClientDataModel>
+
+@using System.Web.Optimization
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<Budget.Models.ProjectDataModel> projects;
 }
 
 @section styles{
     @Styles.Render("~/Content/css/jspkg-tabs/tabs.css")
+    @Styles.Render("~/Content/css/jquery.fancybox.css")
+    @Styles.Render("~/Scripts/jstree/themes/default/style.min.css")
 }
 
-<div id="tab-container" class="tab-container">
-    <ul class='etabs'>
-        <li class='tab'><a href="#page-dashboard">Dashboard</a></li>
-        <li class='tab'><a href="#page-ficha">Ficha</a></li>
-        <li class='tab'><a href="#page-resumen">Resumen</a></li>
-        <li class='tab'><a href="#page-recursos">Recursos</a></li>
-    </ul>
-    <div class="ficha" id="page-dashboard">
+<!-- Page title -->
+<div id="pageTitle" class="content2-pagetitle">Polla Mundialista Argos</div>
 
-        <h3>Mis Pendientes</h3>
-        <table>
-            <tr>
-                <th>Campaña
-                </th>
-                <th>Tarea
-                </th>
-                <th>Fecha Meta
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">Activación La Especial</a>
-                </td>
-                <td>Adicionar recursos necesarios
-                </td>
-                <td>Septiempre 15
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">Activación La Especial</a>
-                </td>
-                <td>Pasar la cotización inicial a Compras
-                </td>
-                <td>Septiempre 17
-                </td>
-            </tr>
-        </table>
+<div style="height: 700px;">
 
-        <h3>Mis Campañas</h3>
-        <table>
-            <tr>
-                <th>Campaña
-                </th>
-                <th>Estado
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">Activación La Especial</a>
-                </td>
-                <td>Creación de Presupuesto
-                </td>
-            </tr>
-        </table>
+    <div id="tab-container" class="tab-container">
+        <ul class='etabs'>
+            <li class='tab'><a href="#page-dashboard">Dashboard</a></li>
+            <li class='tab'><a href="#page-ficha">Ficha</a></li>
+            <!--<li class='tab'><a href="#page-resumen">Resumen</a></li>-->
+            <li class='tab'><a href="#page-recursos">Recursos</a></li>
+        </ul>
+        <div class="ficha" id="page-dashboard">
+
+            <h3>Mis Pendientes</h3>
+            <table>
+                <tr>
+                    <th>Campaña
+                    </th>
+                    <th>Tarea
+                    </th>
+                    <th>Fecha Meta
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">Activación La Especial</a>
+                    </td>
+                    <td>Adicionar recursos necesarios
+                    </td>
+                    <td>Septiempre 15
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">Activación La Especial</a>
+                    </td>
+                    <td>Pasar la cotización inicial a Compras
+                    </td>
+                    <td>Septiempre 17
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Mis Campañas</h3>
+            <table>
+                <tr>
+                    <th>Campaña
+                    </th>
+                    <th>Estado
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">Activación La Especial</a>
+                    </td>
+                    <td>Creación de Presupuesto
+                    </td>
+                </tr>
+            </table>
 
 
 
-    </div>
-    <div class="ficha" id="page-ficha">
+        </div>
+        <div class="ficha" id="page-ficha">
 
-        <table>
-            <tr>
-                <td style="width: 200px;">
-                    <b>Referencia de campaña</b>
-                </td>
-                <td style="width: 300px;">ACTIVACIÓN LA ESPECIAL
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Cliente</b>
-                </td>
-                <td>COMPAÑÍA NACIONAL DE CHOCOLATES
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Marca</b>
-                </td>
-                <td>LA ESPECIAL
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>UEN</b>
-                </td>
-                <td>AGENCIA
-                </td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td style="width: 200px;">
+                        <b>Referencia de campaña</b>
+                    </td>
+                    <td style="width: 300px;">ACTIVACIÓN LA ESPECIAL
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Cliente</b>
+                    </td>
+                    <td>COMPAÑÍA NACIONAL DE CHOCOLATES
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Marca</b>
+                    </td>
+                    <td>LA ESPECIAL
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>UEN</b>
+                    </td>
+                    <td>AGENCIA
+                    </td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td style="width: 200px;">
-                    <b>Ejecutivo de Cuenta</b>
-                </td>
-                <td style="width: 300px;">SARA ARANGO
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Creativo</b>
-                </td>
-                <td>MARCO RAMÍREZ
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Analista de Compras</b>
-                </td>
-                <td>ANGÉLICA FRANCO
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Productos</b>
-                </td>
-                <td>CAROLINA CARDONA
-                </td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td style="width: 200px;">
+                        <b>Lider de Proyecto</b>
+                    </td>
+                    <td style="width: 300px;">SARA ARANGO
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Creativo</b>
+                    </td>
+                    <td>MARCO RAMÍREZ
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Productor</b>
+                    </td>
+                    <td>CAROLINA CARDONA
+                    </td>
+                </tr>
+            </table>
 
-        <table>
-            <tr>
-                <td style="width: 200px;">
-                    <b>Fecha de creación</b>
-                </td>
-                <td style="width: 300px;">8 DE JULIO
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Fecha de Ejecución</b>
-                </td>
-                <td>FERIA DE LAS FLORES
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Ciudad de Ejecución</b>
-                </td>
-                <td>MEDELLÍN
-                </td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td style="width: 200px;">
+                        <b>Fecha de creación</b>
+                    </td>
+                    <td style="width: 300px;">8 DE JULIO
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Fecha de Ejecución</b>
+                    </td>
+                    <td>FERIA DE LAS FLORES
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Ciudad de Ejecución</b>
+                    </td>
+                    <td>MEDELLÍN
+                    </td>
+                </tr>
+            </table>
 
-    </div>
+        </div>
 
+        <!--
     <div class="ficha" id="page-resumen">
 
         <h3>Recursos Generales</h3>
@@ -214,58 +218,146 @@
             </tr>
         </table>
 
+    </div>-->
+
+        <div class="ficha" id="page-recursos">
+
+            <table id="tablaRecursos" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>Area</th>
+                    <th>Recurso</th>
+                    <th>Proveedor</th>
+                    <th>Cantidad </th>
+                    <th>Duración </th>
+                    <th>Costo Unitario </th>
+                    <th>Costo Total</th>
+                    <th>Venta</th>
+                </tr>
+                <tr>
+                    <td rowspan="2"><a href="#">TRANSPORTE</a></td>
+                    <td>CAMIONETA</td>
+                    <td>C&C</td>
+                    <td>1 </td>
+                    <td>2 </td>
+                    <td>$3.000.000,00 </td>
+                    <td>$6.000.000,00 </td>
+                    <td>0 </td>
+                </tr>
+                <tr>
+                    <td>CAMION 300</td>
+                    <td>C&C</td>
+                    <td>3 </td>
+                    <td>2 </td>
+                    <td>$500.000,00 </td>
+                    <td>$3.000.000,00 </td>
+                    <td>0 </td>
+                </tr>
+
+            </table>
+
+            <input id="btnAdd" type="button" value="Adicionar" />
+
+            <div class="advertencia" id="advertencias">
+                Generalmente este tipo de proyecto también tienen estos recursos
+                <p id="panel13"><img src="@Url.Content("/Content/img/warning-icon.png")" />SERVICIOS DE MENSAJERÍA</p>
+                <p id="panel13"><img src="@Url.Content("/Content/img/warning-icon.png")" />TRANSPORTE</p>                  
+
+            </div>
+
+        </div>
     </div>
 
-    <div class="ficha" id="page-recursos">
+</div>
 
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th>Area</th>
-                <th>Recurso</th>
-                <th>Proveedor</th>
-                <th>Cantidad </th>
-                <th>Duración </th>
-                <th>Costo Unitario </th>
-                <th>Costo Total</th>
-                <th>Venta</th>                
-            </tr>
-            <tr>
-                <td rowspan="2"><a href="#">TRANSPORTE</a></td>
-                <td>CAMIONETA</td>
-                <td>C&C</td>
-                <td>1 </td>
-                <td>2 </td>
-                <td>$3.000.000,00 </td>
-                <td>$6.000.000,00 </td>
-                <td>0 </td>                
-            </tr>
-            <tr>
-                <td>CAMION 300</td>
-                <td>C&C</td>
-                <td>3 </td>
-                <td>2 </td>
-                <td>$500.000,00 </td>
-                <td>$3.000.000,00 </td>
-                <td>0 </td>                
-            </tr>
-
-        </table>
-
-        <input id="btnAdd" type="button" value="Adicionar" />
-
+<div style="display: none; overflow: visible">
+    <div id="divRecursos" class="fancy" style="overflow: visible">
+        <h1>Recursos</h1>
+        <div id="treeContent" style="margin: 5px;">
+        </div>
+        <p class="floatright">
+            <a href="javascript:$.fancybox.close();">Cerrar</a>
+        </p>
     </div>
+</div>
 
-    @section scripts{
-        @Scripts.Render("~/Scripts/jspkg-tabs/jquery.hashchange.min.js")
-        @Scripts.Render("~/Scripts/jspkg-tabs/jquery.easytabs.min.js")
 
-        <script>
 
-            $(document).ready(function () {
-                $('#tab-container').easytabs({
-                    animate: false
+@section left_body{
+
+    <h3>Clientes</h3>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        foreach (var item in Model)
+        {
+            <div class="accordion"><a href="#">@item.Name</a></div>
+            {
+                projects = Budget.Business.ProjectBO.GetInstance().GetProjectByClient(Convert.ToInt32(item.ID));
+            }
+            foreach (var pItem in projects)
+            {
+            <div class="accordionContent"><a href="#">@pItem.Name</a></div>
+            }
+        }
+    }
+}
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jspkg-tabs/jquery.hashchange.min.js")
+    @Scripts.Render("~/Scripts/jspkg-tabs/jquery.easytabs.min.js")
+    @Scripts.Render("~/Scripts/jquery.fancybox.js")
+    @Scripts.Render("~/Scripts/jstree/jstree.min.js")
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#tab-container').easytabs({
+                animate: false
+            });
+
+            /********************************************************************************************************************
+            SIMPLE ACCORDIAN STYLE MENU FUNCTION
+            ********************************************************************************************************************/
+            $('div.accordion').click(function () {
+                $('div.accordionContent').slideUp('normal');
+                $(this).next().slideDown('normal');
+            });
+
+            /********************************************************************************************************************
+            CLOSES ALL DIVS ON PAGE LOAD
+            ********************************************************************************************************************/
+            $("div.accordionContent").hide();
+
+            $("#btnAdd").on("click", function () {
+                $.fancybox({
+                    content: $('#divRecursos'),
+                    modal: true
                 });
             });
-        </script>
-    }
-</div>
+
+            $('#treeContent').jstree({
+                'core': {
+                    'data': {
+                        'url': function (node) {
+                            return '/Admin/ManageResource/GetChildren/';
+                        },
+                        'data': function (node) {
+                            return { 'id': node.id }
+                        }
+                    }
+                }
+            });
+
+            $('#treeContent').on("select_node.jstree", function (e, data) {
+                $.fancybox.close();
+                console.log(data.node);
+
+                var parent = $("li[id=" + data.node.parent + "]");
+                var parentText = parent.find('a').first().text();               
+                
+                $('#tablaRecursos tr:last').after('<tr><td>' + parentText + '</td><td>' + data.node.text + '</td><td style="color:red;"><a href="#">seleccione</a></td><td><input type="text" placeholder="ingrese cantidad"></td><td><input type="text" placeholder="ingrese duracion"></td><td>$550.000,00 </td><td>$0</td><td>$0</td></tr>');
+            });
+        });
+    </script>
+}

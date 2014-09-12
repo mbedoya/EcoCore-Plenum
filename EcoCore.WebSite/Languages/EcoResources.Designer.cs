@@ -61,11 +61,128 @@ namespace EcoCore.WebSite.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Administración.
+        /// </summary>
+        public static string Administration {
+            get {
+                return ResourceManager.GetString("Administration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Clientes.
+        /// </summary>
+        public static string Clients {
+            get {
+                return ResourceManager.GetString("Clients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contenido.
+        /// </summary>
+        public static string Content {
+            get {
+                return ResourceManager.GetString("Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Eliminar.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Importar Datos.
+        /// </summary>
+        public static string ImportData {
+            get {
+                return ResourceManager.GetString("ImportData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos Maestro.
+        /// </summary>
+        public static string MasterData {
+            get {
+                return ResourceManager.GetString("MasterData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Proveedores.
+        /// </summary>
+        public static string Providers {
+            get {
+                return ResourceManager.GetString("Providers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Roles.
+        /// </summary>
+        public static string Roles {
+            get {
+                return ResourceManager.GetString("Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Seguridad.
         /// </summary>
         public static string Security {
             get {
                 return ResourceManager.GetString("Security", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Plantillas.
+        /// </summary>
+        public static string Templates {
+            get {
+                return ResourceManager.GetString("Templates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuarios.
+        /// </summary>
+        public static string Users {
+            get {
+                return ResourceManager.GetString("Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Flujos.
+        /// </summary>
+        public static string Workflows {
+            get {
+                return ResourceManager.GetString("Workflows", resourceCulture);
             }
         }
     }

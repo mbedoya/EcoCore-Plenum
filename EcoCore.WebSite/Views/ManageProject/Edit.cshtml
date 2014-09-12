@@ -24,7 +24,7 @@
         <form id="editForm" method="post" enctype="multipart/form-data">
 
             <input id="ID" name="ID" type="hidden" value="@Model.ID.ToString()" />
-            Name<br />
+            Nombre<br />
             @{ Html.RenderAction("FieldDisplay", "Admin", new { name = "Name", value = Model.Name, type = "text", size = 80, options = ""}); }
             <br />
 
@@ -32,14 +32,14 @@
                 80 characters
             </div>
             <br />
-            ClientID<br />
+            Cliente<br />
 
             @{ Html.RenderAction("ForeignKeyDisplay", "Admin", new { fieldName = "ClientID", fieldValue = @Model != null ? @Model.ClientID : 0, primaryTable = "Client", readOnly = false, data = Budget.Business.ClientBO.GetInstance().GetAll() }); }
             <br />
 
 
             <br />
-            <input type="submit" value="Save" />
+            <input type="submit" value="Guardar" />
         </form>
 
         @Scripts.Render("~/Scripts/jquery.js")

@@ -117,7 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Administration" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Contenido</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="ImportData" xml:space="preserve">
+    <value>Importar Datos</value>
+  </data>
+  <data name="MasterData" xml:space="preserve">
+    <value>Datos Maestro</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Providers" xml:space="preserve">
+    <value>Proveedores</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
   <data name="Security" xml:space="preserve">
     <value>Seguridad</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Plantillas</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="Workflows" xml:space="preserve">
+    <value>Flujos</value>
   </data>
 </root>

@@ -1,8 +1,9 @@
-﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
+﻿
 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";    
+}
 
 <!-- Page title -->
 <div id="pageTitle" class="content2-pagetitle">Administration</div>
@@ -11,44 +12,43 @@
 
 @section left_body{
     
+
     <ul class="options">
-        <li class="title">Security@*@EcoCore.WebSite.Languages.EcoResources.Security*@</li>
-        <li class="group"><a id="optionUsers" href="#">Users</a></li>
-        <li class="group"><a id="optionRoles" href="#">Roles</a></li>
+        <li class="title">@EcoCore.WebSite.Languages.EcoResources.Security</li>
+        <li class="group"><a id="optionUsers" href="#">@EcoCore.WebSite.Languages.EcoResources.Users</a></li>
+        <li class="group"><a id="optionRoles" href="#">@EcoCore.WebSite.Languages.EcoResources.Roles</a></li>
         <li class="group"><a id="optionAccessRights" href="#">Access Rights</a></li>
     </ul>
 
     <ul class="options">
-        <li class="title">Templates</li>
+        <li class="title">@EcoCore.WebSite.Languages.EcoResources.Templates</li>
         <li class="group"><a id="optionPageTemplates" href="#">Page</a></li>     
     </ul>
 
     <ul class="options">
-        <li class="title">Master Data</li>
-        <li class="group"><a id="optionClients" href="#">Clients</a></li>
-        <li class="group"><a id="optionProviders" href="#">Providers</a></li>  
-        <li class="group"><a id="optionProjects" href="#">Projects</a></li>  
-        <li class="group"><a id="optionBudget" href="#">Project Budget</a></li>
-        <li class="group"><a id="optionResources" href="#">Resources</a></li>
-        <li class="group">Bank
+        <li class="title">@EcoCore.WebSite.Languages.EcoResources.MasterData</li>
+        <li class="group"><a id="optionClients" href="#">@EcoCore.WebSite.Languages.EcoResources.Clients</a></li>
+        <li class="group"><a id="optionProviders" href="#">@EcoCore.WebSite.Languages.EcoResources.Providers</a></li>  
+        <li class="group"><a id="optionProjects" href="#">Proyectos</a></li>          
+        <li class="group"><a id="optionResources" href="#">Recursos</a></li>
+        <li class="group">Administración de bancos
             <ul>                
-                <li><a id="optionBanks" href="#">Banks</a></li>
-                <li><a id="optionBankAccountTypes" href="#">Bank Account Types</a></li>
+                <li><a id="optionBanks" href="#">Bancos</a></li>
+                <li><a id="optionBankAccountTypes" href="#">Tipos de cuenta</a></li>
             </ul>
         </li>
-        <li class="group">Others
+        <li class="group">Otros
             <ul>                
-                <li><a id="optionCities" href="#">Cities</a></li>           
+                <li><a id="optionCities" href="#">Ciudades</a></li>           
             </ul>
         </li>
     </ul>
 
     <ul class="options">
-        <li class="title">Import Data</li>        
-        <li class="group"><a id="optionProductBulkImport" href="#">Clients</a></li>
-        <li class="group"><a id="optionProductBulkImport" href="#">Providers</a></li>        
+        <li class="title">@EcoCore.WebSite.Languages.EcoResources.ImportData</li>        
+        <li class="group"><a id="optionProductBulkImport" href="#">@EcoCore.WebSite.Languages.EcoResources.Clients</a></li>
+        <li class="group"><a id="optionProductBulkImport" href="#">@EcoCore.WebSite.Languages.EcoResources.Providers</a></li>        
     </ul>
-
 }
 
 @section scripts{
@@ -63,17 +63,17 @@
             });
 
             $("#optionClients").on("click", function () {
-                $("#pageTitle").html("Clients");
+                $("#pageTitle").html("@EcoCore.WebSite.Languages.EcoResources.Clients");
                 $("#pageIframe").attr("src", "/admin/manageclient");
             });
 
             $("#optionProviders").on("click", function () {
-                $("#pageTitle").html("Providers");
+                $("#pageTitle").html("@EcoCore.WebSite.Languages.EcoResources.Providers");
                 $("#pageIframe").attr("src", "/admin/manageprovider");
             });
 
             $("#optionProjects").on("click", function () {
-                $("#pageTitle").html("Projects");
+                $("#pageTitle").html("Proyectos");
                 $("#pageIframe").attr("src", "/admin/manageproject");
             });
 
@@ -83,7 +83,7 @@
             });            
 
             $("#optionResources").on("click", function () {
-                $("#pageTitle").html("Resources");
+                $("#pageTitle").html("Recursos");
                 $("#pageIframe").attr("src", "/admin/manageresource");
             });
 

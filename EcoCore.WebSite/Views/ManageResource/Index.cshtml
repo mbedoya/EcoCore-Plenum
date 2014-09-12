@@ -21,10 +21,10 @@
     <div>
 
         <form id="indexForm">
-            Name<br />
+            @EcoCore.WebSite.Languages.EcoResources.Name<br />
             <input id="Name" name="Name" type="text" />
             <br />
-            <input type="submit" value="Search" />
+            <input type="submit" value="Buscar" />
         </form>
 
         <div id="siteContent" style="margin: 5px;">
@@ -44,15 +44,15 @@
                 <tr>
                     <td>@item.Name </td>
                     <td>
-                        <a href="/admin/manageresource/edit/@item.ID">edit</a>&nbsp;
-						<a class="deleteItem" item="@item.ID" href="#">delete</a>
+                        <a href="/admin/manageresource/edit/@item.ID">Editar</a>&nbsp;
+						<a class="deleteItem" item="@item.ID" href="#">Eliminar</a>
                     </td>
                 </tr>                    
                 }            
 
         </table>
              
-             <input id="btnAdd" type="button" value="Add Resource" />
+             <input id="btnAdd" type="button" value="Nuevo" />
          }
         
 

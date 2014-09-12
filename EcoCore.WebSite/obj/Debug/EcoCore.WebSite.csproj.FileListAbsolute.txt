@@ -59,3 +59,8 @@ C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\b
 C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\bin\Budget.Data.pdb
 C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\bin\Languages\EcoResources.es-CO.resx
 C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\bin\Languages\EcoResources.es-CO.Designer.cs
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\bin\es-CO\EcoCore.WebSite.resources.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\obj\Debug\EcoCore.WebSite.Languages.EcoResources.es-CO.resources
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\obj\Debug\EcoCore.WebSite.csproj.GenerateResource.Cache
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\obj\Debug\es-CO\EcoCore.WebSite.resources.dll
+C:\Users\USUARIO\documents\visual studio 2012\Projects\EcoCore\EcoCore.WebSite\obj\Debug\EcoCore.WebSite.Languages.EcoResources.resources
